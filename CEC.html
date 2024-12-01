@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Offered</title>
+    <style>
+        header {
+            background-color: #0e65bc;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .course-info {
+            width: 75%;
+            padding: 50px;
+            border: 1px solid #0022ff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<header><h1>CEC - COURSES</h1></header>
+    <div class="course-container">
+        <div class="course-info">
+        <h2>B.Com(Bachelor Of Commerec)</h2>
+        <p>BCom is a three-year UG degree course recognised by the Universities Grants Commission (UGC). Students can pursue B.Com programmes as full-time BCom, Distance BCom, or Online BCom. BCom courses are one of the most popular courses amongst the Class 12 students with the Commerce stream. According to a survey report, with nearly 9.33 lakh enrolment, BCom has been the third most desired course in India after Class 12.</p>
+        <p><h4>B.com Courses:</h4> Chartered Account, BCom Marketing, BCom Banking and Insurance, and BCom Finance, BCom Computer Applications, BCom Economics, BCom Business Administration, BCom Teaching, BCom Journalism.</p>
+        <p><h4>Jobs:</h4> Accountant(4-7LPA), Financial Analyst(3-7LPA), Tax Consultant(3-8LPA), Business Consultant(5-10LPA), Stock Broker(3-5LPA), Auditor(4-9LPA).</p>
+        </div>
+    </div>
+
+
+    <div class="course-container">
+        <div class="course-info">
+        <h2>E-commerce Courses</h2>
+        <p>E-commerce is a rapidly growing career option. A good number of jobs with different profiles are being created in this sector every year. Seeing the current scenario of the digital age, a career in the e-commerce industry is one of the best career options chosen by students for their future. E-Commerce can be conducted through various applications like email, online catalogues & shopping carts, Electronic Data Interchange (EDI) and other web services.</p>
+        <p><h4>E-Commerce Courses:</h4></p>
+        <p><a href="https://www.shiksha.com/b-com-chp"> Bachelor of Commerce</a><a href="https://www.shiksha.com/mba/articles/why-mba-specialisation-in-e-commerce-is-the-next-big-thing-blogId-15361">E-Commerce Management</a><a></a></p>
+        <p><h4>Job Profiles:</h4> E-Business Consultant, Business Analyst, Supply Chain Manager, Project Manager, Database Adminstrator.</p>
+
+        </div>
+    </div>
+
+    <canvas id="jobGrowthChart" width="500" height="250"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Data for Job Growth in BTech Courses (Last 10 Years)
+        const years = ['Chartered Account', 'Auditor', 'Accountant', 'Financial Analyst', 'Business Analyst', 'Database Adminstrator'];
+        const jobGrowth = [11, 3.5, 6, 4.5, 9, 14];
+    
+        // Creating a bar chart
+        const ctx = document.getElementById('jobGrowthChart').getContext('2d');
+        const jobGrowthChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Salary in LPA',
+                    data: jobGrowth,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+    
+
+
+</body>
+</html>
