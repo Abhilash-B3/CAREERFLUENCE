@@ -1,122 +1,50 @@
-# CareerFluence - Career Guidance Platform
+# CareerFluence Backend
 
-## Complete Project Setup Guide
+## Setup Instructions
 
-### Step 1: Create Project Structure
-
-Create the following folder structure manually:
-
-```
-careerfluence-project/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── main.tsx
-│   │   ├── App.tsx
-│   │   ├── index.css
-│   │   └── vite-env.d.ts
-│   ├── package.json
-│   ├── vite.config.ts
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   ├── tsconfig.json
-│   ├── tsconfig.app.json
-│   ├── tsconfig.node.json
-│   └── index.html
-└── backend/
-    ├── charts/ (create this empty folder)
-    ├── venv/ (will be created when you run python -m venv venv)
-    ├── app.py
-    ├── requirements.txt
-    └── README.md
+1. Create a virtual environment:
+```bash
+python -m venv venv
 ```
 
-### Step 2: Frontend Setup
+2. Activate the virtual environment:
+```bash
+# Windows
+venv\Scripts\activate
 
-1. **Create React app with Vite:**
-   ```bash
-   npm create vite@latest frontend -- --template react-ts
-   cd frontend
-   npm install
-   ```
-
-2. **Install additional dependencies:**
-   ```bash
-   npm install react-router-dom lucide-react
-   npm install -D tailwindcss postcss autoprefixer
-   npx tailwindcss init -p
-   ```
-
-3. **Replace generated files with the provided code files**
-
-### Step 3: Backend Setup
-
-1. **Create backend folder and navigate:**
-   ```bash
-   mkdir backend
-   cd backend
-   ```
-
-2. **Create charts folder manually:**
-   ```bash
-   mkdir charts
-   ```
-
-3. **Create Python virtual environment:**
-   ```bash
-   python -m venv venv
-   ```
-
-4. **Activate virtual environment:**
-   ```bash
-   # Windows:
-   venv\Scripts\activate
-   
-   # Mac/Linux:
-   source venv/bin/activate
-   ```
-
-5. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Step 4: Run the Application
-
-1. **Terminal 1 - Backend:**
-   ```bash
-   cd backend
-   # Activate venv first
-   python app.py
-   ```
-
-2. **Terminal 2 - Frontend:**
-   ```bash
-   cd frontend
-   npm run dev
-   ```
-
-### Important Notes:
-
-- The `charts/` folder must be created manually - it's where Python will save generated chart images
-- The `venv/` folder is created when you run `python -m venv venv`
-- Both folders are not included in the code files because:
-  - `charts/` is empty initially and gets populated by the Python backend
-  - `venv/` contains your Python virtual environment (should not be committed to version control)
-
-### File Structure After Setup:
-
+# macOS/Linux
+source venv/bin/activate
 ```
-careerfluence-project/
-├── frontend/
-│   ├── node_modules/ (created by npm install)
-│   ├── dist/ (created by npm run build)
-│   └── [all frontend files]
-└── backend/
-    ├── venv/ (created by python -m venv venv)
-    ├── charts/ (create manually, populated by app.py)
-    ├── __pycache__/ (created by Python)
-    └── [all backend files]
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
 ```
+
+4. Run the server:
+```bash
+python app.py
+```
+
+The server will start on `http://localhost:8000`
+
+## API Endpoints
+
+- `GET /api/streams` - Get all streams
+- `GET /api/streams/{id}` - Get specific stream details
+- `GET /api/streams/{id}/courses` - Get courses for a stream
+- `GET /api/streams/{id}/jobs` - Get jobs and exams for a stream
+- `GET /api/gov-jobs` - Get government jobs
+- `GET /api/analytics` - Get analytics data
+- `GET /api/charts/{chart_name}` - Serve chart images
+- `GET /health` - Health check
+
+## Chart Generation
+
+The server automatically generates the following charts:
+- Stream popularity pie chart
+- Emerging trends bar chart
+- Salary trends line chart  
+- In-demand skills horizontal bar chart
+
+Charts are saved in the `charts/` directory and served via the API.
