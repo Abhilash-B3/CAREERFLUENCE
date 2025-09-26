@@ -1,0 +1,96 @@
+Step 1: Create Project Structure
+Open VS Code and create a new folder called careerfluence-project
+Open Terminal in VS Code (Ctrl+`` or View > Terminal`)
+Navigate to your project folder:
+
+cd careerfluence-project
+Step 2: Set Up Frontend (React)
+Create React app:
+
+
+npm create vite@latest frontend -- --template react
+cd frontend
+Install dependencies:
+
+
+npm install
+npm install react-router-dom lucide-react
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+Replace the generated files with the code from this project:
+
+Copy src/main.tsx, src/App.tsx, src/index.css
+Copy all files from src/components/ and src/pages/
+Update tailwind.config.js, index.html
+Step 3: Set Up Backend (Python)
+Go back to project root:
+
+
+cd ..
+mkdir backend
+cd backend
+Create Python virtual environment:
+
+
+python -m venv venv
+
+# On Windows:
+venv\Scripts\activate
+
+# On Mac/Linux:
+source venv/bin/activate
+Create requirements.txt:
+
+
+Flask==3.0.0
+Flask-CORS==4.0.0
+matplotlib==3.8.2
+seaborn==0.13.0
+pandas==2.1.4
+numpy==1.25.2
+Pillow==10.1.0
+Install Python dependencies:
+
+
+pip install -r requirements.txt
+Create app.py with the backend code provided in the project
+
+Step 4: Project Structure Should Look Like This:
+
+careerfluence-project/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Navbar.jsx
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── StreamPage.jsx
+│   │   │   ├── GovJobs.jsx
+│   │   │   └── Analytics.jsx
+│   │   ├── main.tsx
+│   │   ├── App.tsx
+│   │   └── index.css
+│   ├── package.json
+│   └── vite.config.ts
+└── backend/
+    ├── venv/
+    ├── charts/ (auto-created)
+    ├── app.py
+    ├── requirements.txt
+    └── README.md
+Step 5: Run the Application
+Start Backend Server (Terminal 1):
+
+
+cd backend
+# Activate virtual environment first
+python app.py
+Backend will run on http://localhost:8000
+
+Start Frontend Server (Terminal 2 - New Terminal):
+
+
+cd frontend
+npm run dev
+
+Frontend will run on http://localhost:5173
